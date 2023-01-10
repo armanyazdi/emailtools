@@ -13,10 +13,10 @@ thisYear = date.today().year
 def generate(emailProvider=randomProvider, firstName=randomName[0], lastName=randomName[1], birthYear=thisYear):
     specialCharacters = ['', '.', '_', '-']
     firstCharacter = specialCharacters[randrange(len(specialCharacters))]
+    randomNumber = ['', birthYear, randrange(10)][randrange(3)]
     namesOrder = [firstName, lastName][randrange(2)]
-    randomNumbers = ['', birthYear, randrange(10)][randrange(3)]
 
-    if randomNumbers == '':
+    if randomNumber == '':
         secondCharacter = ''
     else:
         secondCharacter = specialCharacters[randrange(len(specialCharacters))]
@@ -33,16 +33,16 @@ def generate(emailProvider=randomProvider, firstName=randomName[0], lastName=ran
     else:
         providerDomain = providers[emailProvider.strip('@ ').replace(' ', '').lower()]
 
-    userName = first + firstCharacter + second + secondCharacter + str(randomNumbers)
+    userName = first + firstCharacter + second + secondCharacter + str(randomNumber)
     emailAddress = userName + '@' + providerDomain
     return emailAddress
 
 
 def validate(emailAddress):
-    isValid = compile(r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)')
+    checkValidation = compile(r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)')
     userName = findall(r'(.*)@', emailAddress)
 
-    if isValid.match(emailAddress) and len(str(userName[0])) <= 64:
+    if checkValidation.match(emailAddress) and len(str(userName[0])) <= 64:
         return True
     else:
         return False
