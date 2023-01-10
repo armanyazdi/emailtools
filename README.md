@@ -20,19 +20,15 @@ Let's take a look at what an example test case would look like using `emailtools
 from emailtools import generate
 
 generate() # Generates a random Email
-
 # Example: Reza.Mahmoudi_2023@yahoo.com
 
 generate('gmail') # Generates a random Gmail
-
 # Example: Jafari_Niloufar@gmail.com
 
 generate('gmail.com', 'Arash', 'Amiri')
-
 # Example: Amiri-Arash1@gmail.com
 
 generate('Proton', 'Bita', 'Alipour', 1995)
-
 # Example: BitaAlipour.1995@proton.me
 ```
 
