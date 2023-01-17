@@ -4,45 +4,45 @@ from re import compile, findall
 from datetime import date
 from .providers import *
 
-providersArray = ['gmail', 'yahoo', 'outlook', 'proton']
-randomProvider = providersArray[randrange(len(providersArray))]
-randomName = fullname_en('r').split()
-thisYear = date.today().year
+providers_list = ['gmail', 'yahoo', 'outlook', 'proton']
+random_provider = providers_list[randrange(len(providers_list))]
+random_name = fullname_en('r').split()
+this_year = date.today().year
 
 
-def generate(emailProvider=randomProvider, firstName=randomName[0], lastName=randomName[1], birthYear=thisYear):
-    specialCharacters = ['', '.', '_', '-']
-    firstCharacter = specialCharacters[randrange(len(specialCharacters))]
-    randomNumber = ['', birthYear, randrange(10)][randrange(3)]
-    namesOrder = [firstName, lastName][randrange(2)]
+def generate(provider=random_provider, firstname=random_name[0], lastname=random_name[1], birthyear=this_year):
+    characters = ['', '.', '_', '-']
+    first_char = characters[randrange(len(characters))]
+    random_num = ['', birthyear, randrange(10)][randrange(3)]
+    names_order = [firstname, lastname][randrange(2)]
 
-    if randomNumber == '':
-        secondCharacter = ''
+    if random_num == '':
+        second_char = ''
     else:
-        secondCharacter = specialCharacters[randrange(len(specialCharacters))]
+        second_char = characters[randrange(len(characters))]
 
-    if namesOrder == firstName:
-        first = firstName
-        second = lastName
+    if names_order == firstname:
+        first = firstname
+        second = lastname
     else:
-        first = lastName
-        second = firstName
+        first = lastname
+        second = firstname
 
-    if '.' in emailProvider:
-        providerDomain = emailProvider.strip('@ ').lower()
+    if '.' in provider:
+        domain = provider.strip('@ ').lower()
     else:
-        providerDomain = providers[emailProvider.strip('@ ').replace(' ', '').lower()]
+        domain = providers[provider.strip('@ ').replace(' ', '').lower()]
 
-    userName = first + firstCharacter + second + secondCharacter + str(randomNumber)
-    emailAddress = userName + '@' + providerDomain
-    return emailAddress
+    username = first + first_char + second + second_char + str(random_num)
+    email = username + '@' + domain
+    return email
 
 
-def validate(emailAddress):
-    checkValidation = compile(r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)')
-    userName = findall(r'(.*)@', emailAddress)
+def validate(email):
+    is_valid = compile(r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)')
+    username = findall(r'(.*)@', email)
 
-    if checkValidation.match(emailAddress) and len(str(userName[0])) <= 64:
+    if is_valid.match(email) and len(str(username[0])) <= 64:
         return True
     else:
         return False
