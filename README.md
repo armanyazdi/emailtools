@@ -1,7 +1,7 @@
 # emailtools
 
-[![PyPI](https://img.shields.io/pypi/v/emailtools?style=for-the-badge)](https://pypi.org/project/emailtools)
-[![GitHub](https://img.shields.io/github/license/armanyazdi/emailtools?style=for-the-badge)](https://pypi.org/project/emailtools)
+[![PyPI](https://img.shields.io/pypi/v/emailtools?style=for-the-badge&color=ee999f&labelColor=302d41)](https://pypi.org/project/emailtools)
+[![GitHub](https://img.shields.io/github/license/armanyazdi/emailtools?style=for-the-badge&color=8cd5ca&labelColor=302d41)](https://pypi.org/project/emailtools)
 
 A Python library for email suggestions and validations.
 
