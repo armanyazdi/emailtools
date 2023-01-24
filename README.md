@@ -19,7 +19,7 @@ Let's take a look at what an example test case would look like using `emailtools
 
 ### Generate Random Emails:
 
-Note: You can use the name of email providers or their domains for the first parameter.
+Note: You can use the name of email providers or their domains for the first argument.
 
 ```python
 from emailtools import generate
