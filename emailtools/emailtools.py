@@ -38,7 +38,7 @@ def generate(provider=random_provider, firstname=random_name[0], lastname=random
     return email
 
 
-def validate(email):
+def isValid(email):
     is_valid = compile(r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)')
     username = findall(r'(.*)@', email)
 
