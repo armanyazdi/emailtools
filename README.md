@@ -62,11 +62,11 @@ for i in range(10):
 ### Validate Emails:
 
 ```python
-from emailtools import validate
+from emailtools import isValid
 
-validate('Anahita.Faramarzi@gmail.com') # True
-validate('Fariborz_Jalali20.gmail.com') # False
-validate('Mohammadrezaei-Arash7@gmail') # False
+isValid('Anahita.Faramarzi@gmail.com') # True
+isValid('Fariborz_Jalali20.gmail.com') # False
+isValid('Mohammadrezaei-Arash7@gmail') # False
 ```
 
 ## License
